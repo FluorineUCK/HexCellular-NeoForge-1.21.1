@@ -1,12 +1,14 @@
 package miyucomics.hexcellular
 
-import at.petrak.hexcasting.api.PatternRegistry
-import at.petrak.hexcasting.api.spell.Action
-import at.petrak.hexcasting.api.spell.math.HexDir
-import at.petrak.hexcasting.api.spell.math.HexPattern
+import at.petrak.hexcasting.api.casting.ActionRegistryEntry
+import at.petrak.hexcasting.api.casting.castables.Action
+import at.petrak.hexcasting.api.casting.math.HexDir
+import at.petrak.hexcasting.api.casting.math.HexPattern
+import at.petrak.hexcasting.common.lib.hex.HexActions
 import miyucomics.hexcellular.patterns.OpCreateProperty
 import miyucomics.hexcellular.patterns.OpObserveProperty
 import miyucomics.hexcellular.patterns.OpSetProperty
+import net.minecraft.registry.Registry
 
 object HexcellularPatterns {
 	@JvmStatic
@@ -17,6 +19,6 @@ object HexcellularPatterns {
 	}
 
 	private fun register(name: String, signature: String, startDir: HexDir, action: Action) {
-		PatternRegistry.mapPattern(HexPattern.fromAngles(signature, startDir), HexcellularMain.id(name), action)
+		Registry.register(HexActions.REGISTRY, HexcellularMain.id(name), ActionRegistryEntry(HexPattern.fromAngles(signature, startDir), action))
 	}
 }

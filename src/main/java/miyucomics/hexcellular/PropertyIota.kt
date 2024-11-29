@@ -1,9 +1,9 @@
 package miyucomics.hexcellular
 
-import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.iota.IotaType
-import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
-import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.iota.IotaType
+import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
+import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtElement
 import net.minecraft.server.world.ServerWorld

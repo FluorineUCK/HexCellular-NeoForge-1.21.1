@@ -1,8 +1,8 @@
 package miyucomics.hexcellular
 
-import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.iota.NullIota
-import at.petrak.hexcasting.common.lib.hex.HexIotaTypes
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.iota.IotaType
+import at.petrak.hexcasting.api.casting.iota.NullIota
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.server.MinecraftServer
 import net.minecraft.server.world.ServerWorld
@@ -32,14 +32,15 @@ class StateStorage : PersistentState() {
 
 		fun setProperty(world: ServerWorld, name: String, iota: Iota) {
 			val state = getServerState(world.server)
-			state.properties[name] = HexIotaTypes.serialize(iota)
+			state.properties[name] = IotaType.serialize(iota)
 			state.markDirty()
 		}
 
 		fun getProperty(world: ServerWorld, name: String): Iota {
 			val state = getServerState(world.server)
-			if (!state.properties.containsKey(name)) return NullIota()
-			return HexIotaTypes.deserialize(state.properties[name]!!, world)
+			if (!state.properties.containsKey(name))
+				return NullIota()
+			return IotaType.deserialize(state.properties[name]!!, world)
 		}
 	}
 }
