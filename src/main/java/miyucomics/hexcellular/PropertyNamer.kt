@@ -6,21 +6,22 @@ private val consonants = charArrayOf('j', 'k', 'l', 'm', 'n', 'p', 's', 't', 'w'
 private val vowels = charArrayOf('a', 'e', 'i', 'o', 'u')
 private val bannedSyllables = listOf("ji", "ti", "wo", "wu")
 
-private val weights = listOf(5, 4, 2)
+private val weights = listOf(2, 5, 3)
 private val scanned = weights.runningFold(0) { sum, weight -> sum + weight }.drop(1)
 private val peak = scanned.last()
 
 fun generatePropertyName(): String {
 	val word = StringBuilder()
-	if (Random.nextBoolean())
+	if (Random.nextBoolean()) {
 		word.append(vowels.random())
+		if (Random.nextBoolean())
+			word.append('n')
+	}
 
 	val numberOfSyllables = generateNumberOfSyllables()
-	var wasNasal = false
 	repeat(numberOfSyllables) {
-		val syllable = generateSyllable(wasNasal)
+		val syllable = generateSyllable(word.endsWith('n'))
 		word.append(syllable)
-		wasNasal = syllable.endsWith('n')
 	}
 
 	return word.toString()

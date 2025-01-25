@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+- added chance for property iota inital vowel to end with an nasal
+- changed the generator's weights for different lengths
+
 ## 1.0.3
 - changed the generator to not allow syllables starting with m or n after a nasal
 - changed the generator to ban syllables "ji", "ti", "wo", "wu", "jin", "tin", "won", "wun"
