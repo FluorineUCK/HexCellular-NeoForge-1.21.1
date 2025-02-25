@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.5
+- added property iota to the `illegal_interworld.json` tag to stop property smuggling
+
 ## 1.0.4
 - added chance for property iota inital vowel to end with an nasal
 - changed the generator's weights for different lengths
