@@ -10,7 +10,7 @@ import net.minecraft.server.world.ServerWorld
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class PropertyIota(property: String) : Iota(TYPE, property) {
+class PropertyIota(property: String, val readonly: Boolean = false) : Iota(TYPE, property) {
 	override fun isTruthy() = true
 	override fun toleratesOther(that: Iota) = typesMatch(this, that) && this.name == (that as PropertyIota).name
 	val name = payload as String
@@ -18,14 +18,15 @@ class PropertyIota(property: String) : Iota(TYPE, property) {
 	override fun serialize(): NbtElement {
 		val compound = NbtCompound()
 		compound.putString("name", this.name)
+		compound.putBoolean("readonly", this.readonly)
 		return compound
 	}
 
 	companion object {
 		@JvmField
 		val TYPE: IotaType<PropertyIota> = object : IotaType<PropertyIota>() {
-			override fun deserialize(nbt: NbtElement, world: ServerWorld) = PropertyIota((nbt as NbtCompound).getString("name"))
-			override fun display(nbt: NbtElement) = Text.literal((nbt as NbtCompound).getString("name")).formatted(Formatting.GREEN)
+			override fun deserialize(nbt: NbtElement, world: ServerWorld) = PropertyIota((nbt as NbtCompound).getString("name"), nbt.getBoolean("readonly"))
+			override fun display(nbt: NbtElement) = Text.literal((nbt as NbtCompound).getString("name")).formatted(if (nbt.getBoolean("readonly")) Formatting.AQUA else Formatting.GREEN)
 			override fun color() = -0x591c5f
 		}
 	}

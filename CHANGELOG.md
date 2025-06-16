@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0
+- added Schrödinger's Purification - transform a property iota into a read-only variant
+- changed the cost of Schrödinger's Reflection to 5 Charged Amethyst
+- revised the book
+
 ## 1.0.5
 - added property iota to the `illegal_interworld.json` tag to stop property smuggling
 
