@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier
 
 class HexcellularMain : ModInitializer {
 	override fun onInitialize() {
-		HexcellularPatterns.init()
+		HexcellularActions.init()
 		Registry.register(HexIotaTypes.REGISTRY, id("property"), PropertyIota.TYPE)
 	}
 

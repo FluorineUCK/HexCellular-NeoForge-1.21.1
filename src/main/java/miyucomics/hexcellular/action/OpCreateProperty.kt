@@ -1,4 +1,4 @@
-package miyucomics.hexcellular.patterns
+package miyucomics.hexcellular.action
 
 import at.petrak.hexcasting.api.casting.RenderedSpell
 import at.petrak.hexcasting.api.casting.castables.SpellAction
@@ -11,7 +11,7 @@ import miyucomics.hexcellular.PropertyIota
 import miyucomics.hexcellular.StateStorage
 import miyucomics.hexcellular.generatePropertyName
 
-class OpCreateProperty : SpellAction {
+object OpCreateProperty : SpellAction {
 	override val argc = 0
 	override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
 		val state = StateStorage.getServerState(env.world.server)

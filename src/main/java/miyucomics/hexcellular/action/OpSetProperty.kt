@@ -1,4 +1,4 @@
-package miyucomics.hexcellular.patterns
+package miyucomics.hexcellular.action
 
 import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
@@ -11,7 +11,7 @@ import miyucomics.hexcellular.StateStorage
 import miyucomics.hexcellular.getProperty
 import net.minecraft.server.network.ServerPlayerEntity
 
-class OpSetProperty : ConstMediaAction {
+object OpSetProperty : ConstMediaAction {
 	override val argc = 2
 	override val mediaCost = MediaConstants.DUST_UNIT / 10
 	override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
