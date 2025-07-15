@@ -26,7 +26,7 @@ class PropertyIota(property: String, val readonly: Boolean = false) : Iota(TYPE,
 		@JvmField
 		val TYPE: IotaType<PropertyIota> = object : IotaType<PropertyIota>() {
 			override fun deserialize(nbt: NbtElement, world: ServerWorld) = PropertyIota((nbt as NbtCompound).getString("name"), nbt.getBoolean("readonly"))
-			override fun display(nbt: NbtElement) = Text.literal((nbt as NbtCompound).getString("name")).formatted(if (nbt.getBoolean("readonly")) Formatting.AQUA else Formatting.GREEN)
+			override fun display(nbt: NbtElement) = Text.literal((nbt as NbtCompound).getString("name")).formatted(Formatting.GREEN).formatted(if (nbt.getBoolean("readonly")) Formatting.BOLD else Formatting.GREEN)
 			override fun color() = -0x591c5f
 		}
 	}
