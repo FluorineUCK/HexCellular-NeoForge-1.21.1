@@ -2,7 +2,8 @@
 
 ## 1.1.0
 - added Schrödinger's Purification - transform a property iota into a read-only variant
-- changed the cost of Schrödinger's Reflection to 5 Charged Amethyst
+- added a command to make the server forget a property exists or to give yourself a thoughtknot with a specific property name
+- changed the cost of Schrödinger's Reflection to 5 Charged Amethyst in order to make them less overpowering of other storage methods
 - revised the book
 
 ## 1.0.5
