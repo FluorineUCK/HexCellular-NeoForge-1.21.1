@@ -30,9 +30,17 @@ class StateStorage : PersistentState() {
 			return persistentStateManager.getOrCreate(::createFromNbt, ::StateStorage, HexcellularMain.MOD_ID)
 		}
 
+		fun listProperties(world: ServerWorld) = getServerState(world.server).properties.keys.toList()
+
 		fun setProperty(world: ServerWorld, name: String, iota: Iota) {
 			val state = getServerState(world.server)
 			state.properties[name] = IotaType.serialize(iota)
+			state.markDirty()
+		}
+
+		fun removeProperty(world: ServerWorld, name: String) {
+			val state = getServerState(world.server)
+			state.properties.remove(name)
 			state.markDirty()
 		}
 
