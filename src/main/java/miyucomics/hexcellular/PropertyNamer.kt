@@ -33,12 +33,12 @@ private fun generateNumberOfSyllables(): Int {
 }
 
 private fun generateSyllable(wasNasal: Boolean): String {
-	var consonant  = consonants.random()
-	var vowel  = vowels.random()
+	var consonant = consonants.random()
+	var vowel = vowels.random()
 	var syllable = "$consonant$vowel"
 	while (wasNasal && (consonant == 'm' || consonant == 'n') || syllable in bannedSyllables) {
-		consonant  = consonants.random()
-		vowel  = vowels.random()
+		consonant = consonants.random()
+		vowel = vowels.random()
 		syllable = "$consonant$vowel"
 	}
 	if (Random.nextBoolean() && !syllable.startsWith('n'))

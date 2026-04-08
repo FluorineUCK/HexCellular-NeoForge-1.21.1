@@ -12,7 +12,7 @@ import net.minecraft.util.Formatting
 
 class PropertyIota(property: String, val readonly: Boolean = false) : Iota(TYPE, property) {
 	override fun isTruthy() = true
-	override fun toleratesOther(that: Iota) = typesMatch(this, that) && this.name == (that as PropertyIota).name
+	override fun toleratesOther(that: Iota) = typesMatch(this, that) && this.name == (that as PropertyIota).name && this.readonly == that.readonly
 	val name = payload as String
 
 	override fun serialize(): NbtElement {

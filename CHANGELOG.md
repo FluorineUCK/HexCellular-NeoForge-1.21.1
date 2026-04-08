@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1
+- fixed a bug where property iota did not take their readonly status into consideration when checking for equality
+
 ## 1.1.0
 - added Schrödinger's Purification - transform a property iota into a read-only variant
 - added a command to make the server forget a property exists or to give yourself a thoughtknot with a specific property name
