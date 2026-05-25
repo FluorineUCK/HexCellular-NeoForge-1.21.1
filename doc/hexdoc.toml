@@ -36,5 +36,5 @@ regex = "{^_pattern_regex}"
 per_world_value = "{^_per_world_value}"
 
 [_common]
-src = "../src"
+src = "../common"
 package = "{src}/main/java/miyucomics/hexcellular"
