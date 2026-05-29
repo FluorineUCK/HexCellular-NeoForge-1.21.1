@@ -1,8 +1,5 @@
 # Changelog
 
-## 1.2.0
-- added the multiloader setup that allows for Forge compatability
-
 ## 1.1.1
 - fixed a bug where property iota did not take their readonly status into consideration when checking for equality
 
