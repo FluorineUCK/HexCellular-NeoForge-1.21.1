@@ -1,0 +1,47 @@
+modLoader = "kotlinforforge"
+loaderVersion = "[5.11,)"
+license = "MIT"
+
+[[mods]]
+modId = "hexcellular"
+version = "${version}"
+displayName = "Hexcellular"
+description = "Adds property iotas to Hex Casting for persistent shared storage and communication."
+authors = "miyucomics; NeoForge 1.21.1 pre39 compatibility port"
+logoFile = "assets/hexcellular/icon.png"
+displayURL = "https://github.com/miyucomics/hexcellular"
+
+[[dependencies.hexcellular]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexcellular]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexcellular]]
+modId = "hexcasting"
+type = "required"
+versionRange = "[0.12.0-devel-pre-35,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.hexcellular]]
+modId = "kotlinforforge"
+type = "required"
+versionRange = "[5.11,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexcellular]]
+modId = "patchouli"
+type = "optional"
+versionRange = "[1.21.1-92,)"
+ordering = "AFTER"
+side = "BOTH"

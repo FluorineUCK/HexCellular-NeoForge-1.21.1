@@ -7,7 +7,8 @@ import miyucomics.hexcellular.StateStorage
 import miyucomics.hexcellular.getProperty
 
 object OpObserveProperty : ConstMediaAction {
-	override val argc = 1
-	override fun execute(args: List<Iota>, env: CastingEnvironment) =
-		listOf(StateStorage.getProperty(env.world, args.getProperty(0, argc)))
+    override val argc = 1
+
+    override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> =
+        listOf(StateStorage.getProperty(env.world, args.getProperty(0, argc)))
 }

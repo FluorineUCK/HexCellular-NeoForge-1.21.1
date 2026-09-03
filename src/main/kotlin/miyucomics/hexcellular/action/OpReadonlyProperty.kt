@@ -8,11 +8,13 @@ import miyucomics.hexcellular.PropertyIota
 import miyucomics.hexcellular.getProperty
 
 object OpReadonlyProperty : ConstMediaAction {
-	override val argc = 1
-	override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
-		val name = args.getProperty(0, argc)
-		if ((args[0] as PropertyIota).readonly)
-			throw MishapInvalidIota.of(args[0], 1, "writeable_prop")
-		return listOf(PropertyIota(name, true))
-	}
+    override val argc = 1
+
+    override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
+        val name = args.getProperty(0, argc)
+        if ((args[0] as PropertyIota).readonly) {
+            throw MishapInvalidIota.of(args[0], 1, "writeable_prop")
+        }
+        return listOf(PropertyIota(name, true))
+    }
 }
